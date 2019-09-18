@@ -1,0 +1,29 @@
+<nav>
+    <aside class="nav-left">
+        <img class="avatar" src="<%=theme.avatar%>" />
+        <p class="author">
+            <%=theme.author%>
+        </p>
+        <ul class="category">
+            <li class="all active">全部文章</li>
+            <% site.categories.forEach(function(category, i){ %>
+            <li data-rel="<%=category.name%>">
+                <%=category.name%>
+            </li>
+            <% }) %>
+        </ul>
+    </aside>
+    <aside class="nav-right">
+        <div class="tag">
+            <input type="text" class="search" placeholder="请输入关键字">
+            <ul>
+                <% site.posts.forEach(function(post){  %>
+                <li>
+                    <a href="<%- url_for(post.path) %>" data-category="<% post.categories.forEach(function(category){ %><%=category.name%><%})%>"> 
+                    <%= post.title %></a>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+    </aside>
+</nav>

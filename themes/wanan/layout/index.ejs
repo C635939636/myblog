@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%= config.title %>
+  </title>
+  <%- css('css/style.css') %>
+  <link href="https://cdn.bootcss.com/jquery.perfect-scrollbar/1.4.0/css/perfect-scrollbar.min.css" rel="stylesheet">
+  <link href="/plugins/highlight/styles/atom-one-dark.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <!-- <script src="/plugins/prettify/prettify.js"></script> -->
+  <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    hljs.configure({
+      useBR: false
+    });
+    $('div.code').each(function (i, block) {
+      hljs.highlightBlock(block);
+    });
+  </script>
+</head>
+
+<body>
+  <%- partial('_partial/nav') %>
+  <%- partial('_partial/post') %>
+</body>
+<%- js('js/index.js') %>
+
+</html>
